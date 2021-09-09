@@ -1,10 +1,14 @@
 #lang racket
 
-(require racket/mpair unstable/sequence racket/syntax)
+(require racket/mpair racket/sequence racket/syntax)
 (require srfi/4)
 (require "env.rkt" "ast.rkt") ; to build the eta-expansions
 
 ;;-----------------------------------------------------------------------------
+
+(define (in-pairs seq)
+(in-parallel (sequence-map car seq) (sequence-map cdr seq)))
+
 
 (provide primitive-encodings)
 (define primitive-encodings '())
